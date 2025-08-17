@@ -11,7 +11,7 @@ RUN rm -rf /usr/share/nginx/html && ln -s /app /usr/share/nginx/html
 
 # Allow users to change the port via environment variables (implemented in entrypoint.sh)
 ARG PORT=80
-ENV PORT=${PORT}
+ENV PORT=${3000}
 
 # Copy the entrypoint script into the container
 COPY entrypoint.sh /entrypoint.sh
@@ -20,7 +20,5 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Expose the port NGINX will use
-EXPOSE ${PORT}
+EXPOSE ${80}
 
-# Define the entrypoint script
-ENTRYPOINT ["/entrypoint.sh"]
